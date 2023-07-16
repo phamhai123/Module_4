@@ -1,4 +1,4 @@
-package com.example.spring_greeting;
+package com.example.spring_greeting.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<h1>Create</h1>
+<form th:object="${product}" method="post">
+    <div class="input-group mb-3">
+        <label>Id</label>
+        <input type="number" th:field="*{id}" class="form-control" placeholder="Enter id..." th:value="${product.id}" aria-describedby="helpId">
+    </div>
+    <div class="input-group mb-3">
+        <label>Name: </label>
+        <input type="text" th:field="*{name}" th:value="${product.name}" class="form-control" placeholder="Enter name product..." aria-describedby="helpId">
+    </div>
+    <div class="input-group mb-3">
+        <label>Price: </label>
+        <input type="number" th:field="*{price}" th:value="${product.price}" class="form-control" placeholder="Enter price product..." aria-describedby="helpId">
+    </div>
+    <div class="input-group mb-3">
+        <label>Describe: </label>
+        <textarea th:field="*{describe}" th:value="${product.describe}" cols="30" rows="5" ></textarea>
+    </div>
+    <div class="input-group mb-3">
+        <label>Band: </label>
+        <input type="text" th:field="*{band}" th:value="${product.band}" class="form-control" placeholder="Enter band product..." aria-describedby="helpId">
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>

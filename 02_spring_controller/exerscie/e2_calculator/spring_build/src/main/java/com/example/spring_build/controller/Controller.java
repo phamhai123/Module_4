@@ -9,31 +9,30 @@ import java.util.Map;
 
 @org.springframework.stereotype.Controller
 public class Controller {
-    private static Map<String, String> dictionaryList = new HashMap<>();
-
-    static {
-        dictionaryList.put("Dog", "Chó");
-        dictionaryList.put("Cat", "Mèo");
-        dictionaryList.put("Hot", "Nóng");
-        dictionaryList.put("Tiger", "Sư tử");
-    }
 
     @GetMapping("/")
-    public String dictionary() {
+    public String calculator() {
         return "index";
     }
 
-    @GetMapping("/dictionary")
-    public String converter(@RequestParam String valueName, Model model) {
-        String value = "";
-        for (String text : dictionaryList.keySet()
-        ) {
-            if (text.toLowerCase().equals(valueName.toLowerCase())) {
-                value = valueName + " : " + dictionaryList.get(text);
-            }
+    @GetMapping("/calculator")
+    public String converter(@RequestParam int valueFirst, @RequestParam String subtend, @RequestParam int valueEnd, Model model) {
+        int result = 0;
+        switch (subtend){
+            case "+":
+                result = valueFirst + valueEnd;
+                break;
+            case "-":
+                result = valueFirst - valueEnd;
+                break;
+            case "*":
+                result = valueFirst * valueEnd;
+                break;
+            case "/":
+                result = valueFirst / valueEnd;
+                break;
         }
-
-        model.addAttribute("result", value);
+        model.addAttribute("result",valueFirst + " " +  subtend + " " + valueEnd +" = " + result);
         return "index";
     }
 

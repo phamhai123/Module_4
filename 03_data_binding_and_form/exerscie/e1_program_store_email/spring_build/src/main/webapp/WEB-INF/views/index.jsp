@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -11,22 +12,29 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<form action="/calculator" method="get">
-    <div class="input-group mb-3">
-        <label>Calculator</label>
-        <input type="text" name="valueFirst" class="form-control">
-        <select class="form-select" name="subtend" id="">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">x</option>
-            <option value="/">:</option>
-        </select>
-        <input type="text" name="valueEnd" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">=</button>
-</form>
-<div>
-    <h3>${result}</h3>
+<a class="btn btn-primary" href="/storeEmail/showSave" role="button">create</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Language</th>
+        <th>Size</th>
+        <th>filter</th>
+        <th>signature</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${listStore}" var="store" varStatus="status">
+    <tr>
+        <td scope="row">${status.count}</td>
+        <td>${store.languages}</td>
+        <td>${store.size}</td>
+        <td>${store.filter}</td>
+        <td>${store.signature}</td>
+    </tr>
+    </c:forEach>
+    </tbody>
+</table>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

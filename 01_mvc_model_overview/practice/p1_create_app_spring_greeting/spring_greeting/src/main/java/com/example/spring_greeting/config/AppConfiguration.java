@@ -1,4 +1,4 @@
-package com.example.spring_greeting;
+package com.example.spring_greeting.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
